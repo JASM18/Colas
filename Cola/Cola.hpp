@@ -1,0 +1,95 @@
+#ifndef COLA_HPP
+#define COLA_HPP
+
+#include <exception>
+
+class Cola {
+public:
+    /** Default constructor */
+    Cola();
+
+    /** Default destructor */
+    ~Cola();
+
+    /** Constructor de copias
+     *  \param La cola que se desea copiar
+     */
+    Cola(const Cola& cola);
+
+    /** Operador de asignación
+     *  \param La cola que se desea copiar
+     *  \return Una referencia a this
+     */
+    Cola& operator=(const Cola& cola);
+
+
+    void Agregar(int valor);
+
+    void Eliminar();
+
+    int ObtenerCabeza();
+
+    int ObtenerCola();
+
+    int ObtenerNumElem();
+
+    bool EstaVacia();
+
+    void Vaciar();
+
+    void Imprimir();
+
+
+
+
+
+
+
+
+
+
+
+
+
+    class ColaVacia : public std::exception {
+    public:
+        /** \brief Constructor por defecto de la excepci&oacute;n PilaVacia.
+         */
+        ColaVacia() throw();
+
+        /** \brief Devuelve una descripci&oacute;n del error al intentar operar con una pila vac&iacute;a.
+         *
+         * \return Cadena de caracteres con el mensaje de error.
+         */
+        virtual const char *what() const throw();
+    };
+
+    class ColaNoMemoria : public std::exception {
+    public:
+        /** \brief Constructor por defecto de la excepci&oacute;n PilaNoMemoria.
+         */
+        ColaNoMemoria() throw();
+
+        /** \brief Devuelve una descripci&oacute;n del error cuando no haya memoria disponible.
+         *
+         * \return Cadena de caracteres con el mensaje de error.
+         */
+        virtual const char *what() const throw();
+    };
+
+
+
+
+private:
+    int numElem; //!< Member variable "numElem"
+
+    struct Elemento{
+        int valor;
+        Elemento *siguiente;
+        Elemento(int val, Elemento *sig); // Constructor de Elemento
+    };
+    Elemento *cabeza;
+    Elemento *cola;
+};
+
+#endif // COLA_HPP

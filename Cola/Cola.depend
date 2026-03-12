@@ -1,0 +1,18 @@
+# depslib dependency file v1.0
+1773075396 source:c:\users\axel\desktop\4to semestre\estructura de datos\clase\cola\main.cpp
+	<iostream>
+	"Cola.hpp"
+	"Aleatorio.hpp"
+
+1773075291 source:c:\users\axel\desktop\4to semestre\estructura de datos\clase\cola\cola.cpp
+	<iostream>
+	"Cola.hpp"
+
+1772729753 c:\users\axel\desktop\4to semestre\estructura de datos\clase\cola\cola.hpp
+	<exception>
+
+1772731755 source:c:\users\axel\desktop\4to semestre\estructura de datos\clase\cola\aleatoeio.cpp
+	<windows.h>
+
+1772731706 c:\users\axel\desktop\4to semestre\estructura de datos\clase\cola\aleatorio.hpp
+
