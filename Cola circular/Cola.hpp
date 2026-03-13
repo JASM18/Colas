@@ -3,7 +3,10 @@
 
 #include <exception>
 
+
+template <typename T>
 class Cola {
+
 public:
     /** Default constructor */
     Cola();
@@ -23,33 +26,21 @@ public:
     Cola& operator=(const Cola& cola);
 
 
-    void Agregar(int valor);
+    void Agregar(T valor);
 
     void Eliminar();
 
-    int ObtenerCabeza();
+    T ObtenerCabeza() const;
 
-    int ObtenerCola();
+    T ObtenerCola() const;
 
-    int ObtenerNumElem();
+    int ObtenerNumElem() const;
 
-    bool EstaVacia();
+    bool EstaVacia() const;
 
     void Vaciar();
 
-    void Imprimir();
-
-
-
-
-
-
-
-
-
-
-
-
+    void Imprimir() const;
 
     class ColaVacia : public std::exception {
     public:
@@ -77,19 +68,18 @@ public:
         virtual const char *what() const throw();
     };
 
-
-
-
 private:
     int numElem; //!< Member variable "numElem"
 
     struct Elemento{
-        int valor;
+        T valor;
         Elemento *siguiente;
-        Elemento(int val, Elemento *sig); // Constructor de Elemento
+        Elemento(T val, Elemento *sig); // Constructor de Elemento
     };
-    Elemento *cabeza;
+
     Elemento *ultimo;
 };
+
+#include "Cola.tpp"
 
 #endif // COLA_HPP

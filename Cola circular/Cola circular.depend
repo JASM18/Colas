@@ -2,17 +2,21 @@
 1772731755 source:c:\users\axel\desktop\4to semestre\estructura de datos\clase\colas  -trabajo en clase\cola circular\aleatoeio.cpp
 	<windows.h>
 
-1773076730 source:c:\users\axel\desktop\4to semestre\estructura de datos\clase\colas  -trabajo en clase\cola circular\main.cpp
+1773377378 source:c:\users\axel\desktop\4to semestre\estructura de datos\clase\colas  -trabajo en clase\cola circular\main.cpp
 	<iostream>
 	"Cola.hpp"
 	"Aleatorio.hpp"
 
-1773077157 source:c:\users\axel\desktop\4to semestre\estructura de datos\clase\colas  -trabajo en clase\cola circular\cola.cpp
+1773375131 source:c:\users\axel\desktop\4to semestre\estructura de datos\clase\colas  -trabajo en clase\cola circular\cola.cpp
 	<iostream>
 	"Cola.hpp"
 
-1773077196 c:\users\axel\desktop\4to semestre\estructura de datos\clase\colas  -trabajo en clase\cola circular\cola.hpp
+1773377297 c:\users\axel\desktop\4to semestre\estructura de datos\clase\colas  -trabajo en clase\cola circular\cola.hpp
 	<exception>
+	"Cola.tpp"
 
 1772731706 c:\users\axel\desktop\4to semestre\estructura de datos\clase\colas  -trabajo en clase\cola circular\aleatorio.hpp
+
+1773377378 c:\users\axel\desktop\4to semestre\estructura de datos\clase\colas  -trabajo en clase\cola circular\cola.tpp
+	<iostream>
 

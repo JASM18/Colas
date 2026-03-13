@@ -6,29 +6,29 @@ using namespace std;
 
 int main()
 {
-    Cola a;
+    Cola<int> colita;
 
-    cout << "Linea 1" << endl;
+    cout << colita << endl;
 
-    a.Agregar(1);
+    colita.Agregar(1);
 
-    a.Imprimir();
-    cout << endl;
+    cout << colita << endl;
 
-    a.Agregar(2);
+    colita.Agregar(2);
 
-    a.Imprimir();
-    cout << endl;
+    cout << colita << endl;
 
-    a.Agregar(3);
+    colita.Agregar(3);
 
-    a.Imprimir();
-    cout << endl;
+    cout << colita << endl;
 
-    a.Agregar(4);
+    colita.Agregar(4);
 
-    a.Imprimir();
-    cout << endl;
+    cout << colita << endl;
+
+    colita.Eliminar();
+
+    cout << colita << endl;
 
     /*
     for(int i = 0 ; i < 100 ; ++i){
