@@ -27,7 +27,6 @@ Cola<T>::Cola(const Cola& Cola)
     numElem = 0;
     ultimo = nullptr;
     *this = Cola;
-
 }
 
 //***********************************
@@ -165,7 +164,7 @@ void Cola<T>::Imprimir() const
         visitado = visitado->siguiente;
     }while(visitado != ultimo->siguiente);
 
-    if(!EstaVacia()) std::cout << "\b\b <- Inicio";
+    if(!EstaVacia()) std::cout << "\b\b <- Ultimo";
 }
 
 //***********************************
