@@ -39,6 +39,8 @@ int main()
     int esperaAgregar = aleatorio(1, 7);
     int esperaEliminar = aleatorio(1, 10);
 
+    system("pause");
+    system("CLS");
 
     cout << "=== INICIANDO SIMULACION ===" << endl;
     cout << "Primer elemento en: " << esperaAgregar << " vueltas." << endl;
@@ -50,21 +52,7 @@ int main()
 
         for(int i = 0 ; i < 100 ; ++i){
 
-            // Cada cierto tiempo al azar (cada 3 vueltas, cada 5 vueltas...) metan un elemento a la cola
-            // Al iniciar el ciclo meter un numero al azar entre 1-7
-            // Esperar esa cantidad de vueltas para meter un elemento, despues de eso escoger otra vez el umero al azar y meterlo
-            //imprimir la vuelta en la que vamos
-            //imprimir el numero de vueltas al azar que tenemos q esperar
-            //pausa de 1 segundo cada vuelta
-
-
-            //despues
-            //al mismo tiempo generar otro tiempo al azar (puede ser 1-7, 1-10, 5-10, etc)
-            //cuando se cumpla esa cantidad de vueltas, eliminar uno de la cola
-            //revisar antes si está vacia
-
-
-            cout << "\n==========" << endl;
+            cout << "==========" << endl;
 
             // a) Imprima el número de vuelta en que va
             cout << "Número de vuelta: " << i << endl;
@@ -82,7 +70,7 @@ int main()
             if(esperaAgregar == 0){
 
                 colita.Agregar(i);
-                cout << "[EXIGO] se agrego el eleemnto " << i << " a la cola" << endl;
+                cout << "[EXITO] se agrego el eleemnto " << i << " a la cola" << endl;
 
                 esperaAgregar = aleatorio(1, 7);
                 cout << "Siguiente elemento en: " << esperaAgregar << " vueltas" << endl;
