@@ -9,7 +9,7 @@ Cola::Cola()
 {
     numElem = 0;
     cabeza = nullptr;
-    cola = nullptr;
+    ultimo = nullptr;
 }
 
 //**********************************************
@@ -25,7 +25,7 @@ Cola::Cola(const Cola& Cola)
 {
     numElem = 0;
     cabeza = nullptr;
-    cola = nullptr;
+    ultimo = nullptr;
     *this = Cola;
 
 }
@@ -36,8 +36,14 @@ Cola& Cola::operator=(const Cola& cola)
     //assignment operator
 
     Vaciar();
+
+    if(cola.cabeza == nullptr){
+        return *this;
+    }
+
     Elemento *visitado = cola.cabeza;
-    while (visitado != nullptr) {
+
+    while(visitado != nullptr){
         Agregar(visitado->valor);
         visitado = visitado->siguiente;
     }
@@ -51,16 +57,21 @@ Cola& Cola::operator=(const Cola& cola)
 
 void Cola::Agregar(int valor)
 {
-    Elemento *nuevo = new Elemento(valor, nullptr);
+    try{
+        Elemento *nuevo = new Elemento(valor, nullptr);
 
-    if(EstaVacia()){
-        cabeza = nuevo;
-        cola = nuevo;
-    }else{
-        cola->siguiente = nuevo;
-        cola = nuevo;
+        if(EstaVacia()){
+            cabeza = nuevo;
+            ultimo = nuevo;
+        }else{
+            ultimo->siguiente = nuevo;
+            ultimo = nuevo;
+        }
+
+        ++numElem;
+    }catch(const std::bad_alloc&){
+        throw ColaNoMemoria();
     }
-    ++numElem;
 }
 
 //**********************************************
@@ -70,19 +81,20 @@ void Cola::Eliminar()
     if(EstaVacia()){
         throw ColaVacia();
     }
+
     Elemento *porBorrar = cabeza;
     cabeza = cabeza->siguiente;
     delete porBorrar;
     --numElem;
 
     if(cabeza == nullptr){
-        cola = nullptr;
+        ultimo = nullptr;
     }
 }
 
 //**********************************************
 
-bool Cola::EstaVacia()
+bool Cola::EstaVacia() const
 {
     if(cabeza == nullptr){
         return true;
@@ -100,24 +112,35 @@ void Cola::Vaciar()
 
 //**********************************************
 
-int Cola::ObtenerCabeza()
+int Cola::ObtenerCabeza() const
 {
+    if(EstaVacia()){
+        throw ColaVacia();
+    }
     return cabeza->valor;
 }
 
 //**********************************************
 
-int Cola::ObtenerCola()
+int Cola::ObtenerCola() const
 {
-    return cola->valor;
+    if(EstaVacia()){
+        throw ColaVacia();
+    }
+
+    return ultimo->valor;
 }
 
-int Cola::ObtenerNumElem()
+//**********************************************
+
+int Cola::ObtenerNumElem() const
 {
     return numElem;
 }
 
-void Cola::Imprimir()
+//***********************************
+
+void Cola::Imprimir() const
 {
     Elemento *visitado = cabeza;
     std::cout << "Cabeza-> ";
@@ -127,11 +150,12 @@ void Cola::Imprimir()
         visitado = visitado->siguiente;
     }
 
-    if(!EstaVacia()) std::cout << "\b\b <- Inicio";
+    if(!EstaVacia()) std::cout << "\b\b <- Ultimo";
 }
 
-Cola::Elemento::Elemento(int val, Elemento *sig /*=nullptr*/) : valor(val), siguiente(sig){}
+//***********************************
 
+Cola::Elemento::Elemento(int val, Elemento *sig /*=nullptr*/) : valor(val), siguiente(sig){}
 
 //***********************************
 // Implementación de la clase ColaVacia
@@ -155,5 +179,13 @@ const char *Cola::ColaVacia::what() const throw()
 const char *Cola::ColaNoMemoria::what() const throw()
 {
     return "No hay memoria disponible.";
+}
+
+//***********************************
+
+std::ostream & operator<<(std::ostream & salida, const Cola &cola)
+{
+    cola.Imprimir();
+    return salida;
 }
 

@@ -4,6 +4,7 @@
 #include <exception>
 
 class Cola {
+    friend std::ostream& operator<<(std::ostream& salida, const Cola& cola);
 public:
     /** Default constructor */
     Cola();
@@ -22,34 +23,21 @@ public:
      */
     Cola& operator=(const Cola& cola);
 
-
     void Agregar(int valor);
 
     void Eliminar();
 
-    int ObtenerCabeza();
+    int ObtenerCabeza() const;
 
-    int ObtenerCola();
+    int ObtenerCola() const;
 
-    int ObtenerNumElem();
+    int ObtenerNumElem() const;
 
-    bool EstaVacia();
+    bool EstaVacia() const;
 
     void Vaciar();
 
-    void Imprimir();
-
-
-
-
-
-
-
-
-
-
-
-
+    void Imprimir() const;
 
     class ColaVacia : public std::exception {
     public:
@@ -77,19 +65,16 @@ public:
         virtual const char *what() const throw();
     };
 
-
-
-
 private:
     int numElem; //!< Member variable "numElem"
 
     struct Elemento{
         int valor;
         Elemento *siguiente;
-        Elemento(int val, Elemento *sig); // Constructor de Elemento
+        Elemento(int val, Elemento *sig = nullptr); // Constructor de Elemento
     };
     Elemento *cabeza;
-    Elemento *cola;
+    Elemento *ultimo;
 };
 
 #endif // COLA_HPP

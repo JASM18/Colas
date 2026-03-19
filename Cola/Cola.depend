@@ -16,3 +16,20 @@
 
 1772731706 c:\users\axel\desktop\4to semestre\estructura de datos\clase\cola\aleatorio.hpp
 
+1772731755 source:c:\users\axel\desktop\4to semestre\estructura de datos\clase\colas  -trabajo en clase\cola\aleatoeio.cpp
+	<windows.h>
+
+1773075396 source:c:\users\axel\desktop\4to semestre\estructura de datos\clase\colas  -trabajo en clase\cola\main.cpp
+	<iostream>
+	"Cola.hpp"
+	"Aleatorio.hpp"
+
+1773896059 c:\users\axel\desktop\4to semestre\estructura de datos\clase\colas  -trabajo en clase\cola\cola.hpp
+	<exception>
+
+1772731706 c:\users\axel\desktop\4to semestre\estructura de datos\clase\colas  -trabajo en clase\cola\aleatorio.hpp
+
+1773895908 source:c:\users\axel\desktop\4to semestre\estructura de datos\clase\colas  -trabajo en clase\cola\cola.cpp
+	<iostream>
+	"Cola.hpp"
+
